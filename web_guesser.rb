@@ -37,10 +37,11 @@ class WebGuesser
   end
 end
 
-webguesser = WebGuesser.new
+web_guesser = WebGuesser.new
 
 get '/' do
-  webguesser.counter -= 1
-  message = webguesser.game_moderator(params['guess'], webguesser.counter)
-  erb :index, :locals => {:number => webguesser.number, :message => message}
+  web_guesser.counter -= 1
+  message = web_guesser.game_moderator(params['guess'], web_guesser.counter)
+  # have it take in a hex color here to be used in CSS <style> bitness
+  erb :index, :locals => {:number => web_guesser.number, :message => message}
 end
